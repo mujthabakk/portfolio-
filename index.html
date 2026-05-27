@@ -443,6 +443,7 @@
     section {
       padding: 110px 5%;
       position: relative;
+      z-index: 1;
       content-visibility: auto;
       contain-intrinsic-size: auto 700px;
     }
@@ -501,6 +502,7 @@
       content: ''; position: absolute; inset: 0; opacity: 0;
       background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(167,139,250,0.06));
       transition: opacity 0.3s;
+      pointer-events: none;
     }
     .highlight-card:hover { border-color: rgba(96,165,250,0.35); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     .highlight-card:hover::before { opacity: 1; }
@@ -529,6 +531,7 @@
       width: 60%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
       transition: left 0.5s ease;
+      pointer-events: none;
     }
     .skill-category:hover { border-color: rgba(96,165,250,0.3); transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.35); }
     .skill-category:hover::after { left: 160%; }
@@ -595,6 +598,7 @@
       height: 2px; opacity: 0;
       background: linear-gradient(90deg, var(--primary2), var(--purple2));
       transition: opacity 0.3s;
+      pointer-events: none;
     }
     .exp-card:hover { border-color: rgba(96,165,250,0.3); box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
     .exp-card:hover::before { opacity: 1; }
@@ -640,6 +644,12 @@
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse at top left, rgba(96,165,250,0.06) 0%, transparent 60%);
       opacity: 0; transition: opacity 0.4s;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .project-card > * {
+      position: relative;
+      z-index: 1;
     }
     .project-card:hover {
       border-color: rgba(96,165,250,0.4);
@@ -663,6 +673,8 @@
       border: 1px solid var(--border); background: rgba(255,255,255,0.04);
       text-decoration: none; font-size: 0.7rem; color: var(--muted);
       cursor: pointer;
+      pointer-events: auto;
+      z-index: 2;
       transition: border-color .2s, color .2s, background .2s;
     }
     .project-link:hover { border-color: var(--primary); color: var(--primary); background: rgba(96,165,250,0.1); }
@@ -682,6 +694,8 @@
       display: inline-flex; align-items: center; gap: 5px;
       font-weight: 700; text-decoration: none;
       cursor: pointer;
+      pointer-events: auto;
+      z-index: 2;
       transition: opacity .2s, transform .2s;
     }
     .store-badge:hover { opacity: .8; transform: translateY(-1px); }
